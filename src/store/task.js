@@ -29,7 +29,7 @@ const taskReducer = createReducer(initialState, (builder) => {
         ...action.payload
       }
   }).addCase(remove, (state, action) => {
-    return state.filter((el) => el.id !== action.payload.id)
+    return state.filter((el) => el.id !== action.payload.id) // '*' Прямая государственная мутация
   })
 })
 
