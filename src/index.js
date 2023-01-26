@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import ReactDOM from 'react-dom/client'
-import {taskComplete, titleChenge, taskDeleted } from './store/task'
+import {completeTask, titleChenge, taskDeleted } from './store/task'
 import configureStore from './store/store';
 
 
@@ -15,10 +15,7 @@ const App = () => {
     })
   }, [])
 
-  const completeTask = (taskId) => {
-    store.dispatch(taskComplete(taskId))
-  }
-
+ 
   const changeTitle = (taskId) => {
     store.dispatch(titleChenge(taskId))
   }
@@ -35,7 +32,7 @@ const App = () => {
         <li key={el.id}>
           <p>{el.title}</p>
           <p> {`Comleted: ${el.completed}`}</p>
-          <button onClick={() => completeTask(el.id)}>
+          <button onClick={() => store.dispatch(completeTask(el.id))}>
             Completed
           </button>
           <button onClick={() => changeTitle(el.id)}>

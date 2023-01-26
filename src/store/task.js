@@ -23,8 +23,8 @@ const taskSlice = createSlice({name: 'task', initialState, reducers: {
 const { actions, reducer: taskReducer } = taskSlice
 const { update, remove } = actions
 
-export function taskComplete(id) {
-  return update({ id, completed: true})
+export const completeTask = (id) => (dispatch, getState) => {
+  dispatch(update({ id, completed: true}))
 }
 
 export function titleChenge(id) {
@@ -37,3 +37,4 @@ export function taskDeleted(id) {
 }
 
 export default taskReducer
+
