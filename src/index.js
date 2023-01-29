@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import ReactDOM from 'react-dom/client'
 import {completeTask, titleChenge, taskDeleted, getTasks } from './store/task'
 import configureStore from './store/store';
+import { Provider } from 'react-redux';
 
 
 
@@ -54,6 +55,8 @@ const App = () => {
 const root = ReactDOM.createRoot(document.getElementById('root'))
 root.render(
   <React.StrictMode>
-    <App />
+    <Provider store={store}>
+      <App />
+    </Provider>
   </React.StrictMode>
 )
