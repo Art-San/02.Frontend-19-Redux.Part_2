@@ -9,6 +9,10 @@ const todosService = {
            } 
         })
         return data
+    },
+    create: async (payload) => {
+        const { data } = await httpServise.post(todosEndepoint, payload)
+        return data 
     }
 }
 

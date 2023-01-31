@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import ReactDOM from 'react-dom/client'
-import {completeTask, titleChenge, taskDeleted, getTasks, loadTasks, getTasksLoadingStatus } from './store/task'
+import {completeTask, titleChenge, taskDeleted, getTasks, loadTasks, getTasksLoadingStatus, createTask } from './store/task'
 import configureStore from './store/store';
 import { Provider, useSelector, useDispatch } from 'react-redux';
 import { getError } from './store/error';
@@ -18,6 +18,9 @@ const App = () => {
     dispatch(loadTasks())
   }, [])
 
+  const addNewTask = () => {
+    dispatch(createTask({ userId: 1, title: 'SomeNew Task', completed: false }))
+  }
  
   const changeTitle = (taskId) => {
     dispatch(titleChenge(taskId))
@@ -36,6 +39,7 @@ const App = () => {
   return (
     <>
     <h1>App</h1>
+    <button onClick={addNewTask}>Add Task</button>
     <ul>
       {state.map((el) => (
         <li key={el.id}>
