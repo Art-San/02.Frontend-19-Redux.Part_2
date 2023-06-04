@@ -34,7 +34,7 @@ const taskReducer = createReducer(initialState, (builder) => {
           : `Task ${action.payload.id}`
     })
     .addCase(remove, (state, action) => {
-      return state.filter((el) => el.id !== action.payload.id) // '*' Прямая государственная мутация
+      return state.filter((el) => el.id !== action.payload.id) // '*' Прямая государственная мутация "Direct State Mutation"
       // state.filter((el) => el.id !== action.payload.id) // работать не будет, нужно добавит ретурн явно указываем изменения,
       // https://redux-toolkit.js.org/api/createReducer#direct-state-mutation лучше тут читать
     })
