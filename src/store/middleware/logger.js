@@ -1,26 +1,28 @@
 export function logger(store) {
-    return function wrapDispatch(next) {
-      return function handleAction(action) {  // в текущий момент логер просто пропускае данные
-    
-        return next(action)
-      }
+  return function wrapDispatch(next) {
+    return function handleAction(action) {
+      // в текущий момент логер просто пропускае данные
+      console.log('store', store)
+      console.log('next', next)
+      console.log('action', action)
+      return next(action)
     }
   }
+}
 
-
-
-//   export function logger({getState, dispatch}) {
-//     return function wrapDispatch(next) {
-//       return function handleAction(action) {
+// export function logger({ getState, dispatch }) {
+//   return function wrapDispatch(next) {
+//     return function handleAction(action) {
 //       console.log('next', next)
 //       console.log('action', action)
-//       if (action.type === 'task/update') {    // в этом месте можем изменять действия
-//         return dispatch({ 
-//             type: 'task/remove',
-//             payload: { ...action.payload}
+//       if (action.type === 'task/update') {
+//         // в этом месте можем изменять действия
+//         return dispatch({
+//           type: 'task/remove',
+//           payload: { ...action.payload }
 //         })
 //       }
-//         return next(action)
-//       }
+//       return next(action)
 //     }
 //   }
+// }
