@@ -72,3 +72,5 @@ root.render(
     </Provider>
   </React.StrictMode>
 )
+
+// изменил название на гит хабе
